@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeInUp } from '@/lib/animations';
-import { School, Code, Briefcase, ChevronRight } from 'lucide-react';
+import { School, Code, Briefcase } from 'lucide-react';
 import { DynamicIcon } from 'lucide-react/dynamic';
 
 const journeyMilestones = [

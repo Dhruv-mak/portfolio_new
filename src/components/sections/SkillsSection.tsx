@@ -12,7 +12,7 @@ import {
   SiPandas, SiOpencv, SiHuggingface
 } from 'react-icons/si';
 import {FaJava} from "react-icons/fa6";
-import { FaRobot, FaServer, FaDatabase, FaTools, FaCloud, FaMicrochip } from 'react-icons/fa';
+import { FaRobot, FaServer, FaDatabase, FaCloud, FaMicrochip } from 'react-icons/fa';
 
 const techCategories = [
   {

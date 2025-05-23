@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Twitter, Send, Loader2 } from 'lucide-react'; // Assuming Twitter icon is desired
+import { Mail, Github, Linkedin, Twitter, Send, Loader2 } from 'lucide-react';
 import { fadeInUp } from '@/lib/animations';
 
 export default function ContactSection() {
@@ -29,7 +29,7 @@ export default function ContactSection() {
       setFormStatus('success');
       setFormState({ name: '', email: '', message: '' });
       setTimeout(() => setFormStatus(null), 5000);
-    } catch (error) {
+    } catch {
       setFormStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -60,7 +60,7 @@ export default function ContactSection() {
             initial={{ opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Have a project in mind or just want to chat? I'd love to hear from you.
+            Have a project in mind or just want to chat? I&apos;d love to hear from you.
           </motion.p>
         </motion.div>
 
@@ -75,10 +75,10 @@ export default function ContactSection() {
               className="space-y-8"
             >
               <div>
-                <h3 className="text-2xl font-bold mb-4 text-white">Let's connect</h3>
+                <h3 className="text-2xl font-bold mb-4 text-white">Let&apos;s connect</h3>
                 <p className="text-gray-300 mb-8">
-                  I'm passionate about tackling new challenges and discussing innovative ideas. 
-                  Whether you have a question about my work, want to explore a collaboration, or just want to connect, I'll do my best to get back to you!
+                  I&apos;m passionate about tackling new challenges and discussing innovative ideas. 
+                  Whether you have a question about my work, want to explore a collaboration, or just want to connect, I&apos;ll do my best to get back to you!
                 </p>
               </div>
 
@@ -223,7 +223,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-lg bg-gray-700/60 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 resize-none"
-                    placeholder="Hello, I'd like to talk about..."
+                    placeholder="Hello, I&apos;d like to talk about..."
                   ></textarea>
                 </div>
                 
@@ -271,7 +271,7 @@ export default function ContactSection() {
                       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                       <polyline points="22 4 12 14.01 9 11.01"></polyline>
                     </svg>
-                    Message sent successfully! I'll get back to you soon.
+                    Message sent successfully! I&apos;ll get back to you soon.
                   </motion.div>
                 )}
                 

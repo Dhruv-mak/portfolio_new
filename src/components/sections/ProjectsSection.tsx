@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { fadeInUp, staggerContainer, projectVariants } from '@/lib/animations';
+import { fadeInUp } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Github, ExternalLink } from 'lucide-react';

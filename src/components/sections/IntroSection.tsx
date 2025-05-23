@@ -2,7 +2,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Code, Briefcase, MessageSquare } from 'lucide-react'; // Assuming these icons are still relevant
+import { Code } from 'lucide-react';
+import Image from 'next/image';
 import { fadeInUp, floatingAnimation } from '@/lib/animations';
 
 export default function IntroSection() {
@@ -73,10 +74,13 @@ export default function IntroSection() {
               animate={floatingAnimation}
             >
               <div className="rounded-xl overflow-hidden border-4 border-amber-500/20 mx-auto w-64 h-64 md:w-80 md:h-80">
-                <img
+                <Image
                   src="/images/hero-image.png"
                   alt="Dhruv Makwana"
+                  width={320}
+                  height={320}
                   className="w-full h-full object-cover object-center"
+                  priority
                 />
               </div>
 

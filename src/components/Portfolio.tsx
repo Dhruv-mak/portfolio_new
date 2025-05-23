@@ -6,7 +6,7 @@ import IntroSection from './sections/IntroSection';
 import JourneySection from './sections/JourneySection';
 import ProjectsSection from './sections/ProjectsSection';
 import SkillsSection from './sections/SkillsSection';
-import BeyondCodeSection from './sections/BeyondCodeSection';
+// import BeyondCodeSection from './sections/BeyondCodeSection';
 import ContactSection from './sections/ContactSection';
 
 const Portfolio = () => {
