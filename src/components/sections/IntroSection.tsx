@@ -7,6 +7,29 @@ import Image from 'next/image';
 import { fadeInUp, floatingAnimation } from '@/lib/animations';
 
 export default function IntroSection() {
+  // Smooth scroll handler
+  const handleSmoothScroll = (targetId: string) => {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const headerOffset = 80; // Account for fixed header height
+      const elementPosition = targetElement.offsetTop;
+      const offsetPosition = Math.max(0, elementPosition - headerOffset);
+      
+      // Get document height to prevent over-scrolling
+      const documentHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+      const maxScroll = documentHeight - windowHeight;
+      
+      // Ensure we don't scroll past the document
+      const finalPosition = Math.min(offsetPosition, maxScroll);
+
+      window.scrollTo({
+        top: finalPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section id="intro" className="min-h-screen flex items-center relative overflow-hidden">
       <div className="container mx-auto px-4 py-16 md:py-0">
@@ -50,13 +73,15 @@ export default function IntroSection() {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <Button
-                className="bg-amber-500 hover:bg-amber-600 text-gray-900 font-medium"
+                onClick={() => handleSmoothScroll('projects')}
+                className="bg-amber-500 hover:bg-amber-600 text-gray-900 font-medium cursor-pointer"
               >
                 See My Work
               </Button>
               <Button
+                onClick={() => handleSmoothScroll('contact')}
                 variant="outline"
-                className="border-gray-700 hover:bg-gray-800 text-white"
+                className="border-gray-700 hover:bg-gray-800 text-white cursor-pointer"
               >
                 Get In Touch
               </Button>

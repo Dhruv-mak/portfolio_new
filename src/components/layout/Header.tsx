@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { motion, AnimatePresence, animate } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { User, Briefcase, Code, MessageSquare, Menu, X, Download } from 'lucide-react';
 import { NavLink } from '@/components/ui/nav-link';
 
@@ -15,7 +15,7 @@ export default function Header({ activeSection }: { activeSection: string }) {
     { id: 'contact', label: 'Contact', icon: <MessageSquare size={16} /> }
   ];
 
-  // Smooth scroll handler using Framer Motion
+  // Smooth scroll handler
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     const targetElement = document.getElementById(targetId);
@@ -32,15 +32,10 @@ export default function Header({ activeSection }: { activeSection: string }) {
       // Ensure we don't scroll past the document
       const finalPosition = Math.min(offsetPosition, maxScroll);
 
-      // Use Framer Motion's animate for smoother control
-      animate(window.scrollY, finalPosition, {
-        duration: 0.8,
-        ease: "easeInOut",
-        onUpdate: (value) => window.scrollTo(0, value),
-        onComplete: () => {
-          // Ensure exact position after animation
-          window.scrollTo(0, finalPosition);
-        }
+      // Use native smooth scrolling for more natural feel
+      window.scrollTo({
+        top: finalPosition,
+        behavior: 'smooth'
       });
     }
     setMobileMenuOpen(false); // Close mobile menu if open
