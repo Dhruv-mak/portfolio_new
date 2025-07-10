@@ -7,12 +7,14 @@ interface NavLinkProps {
   isActive: boolean;
   icon: ReactNode;
   label: string;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-export function NavLink({ href, isActive, icon, label }: NavLinkProps) {
+export function NavLink({ href, isActive, icon, label, onClick }: NavLinkProps) {
   return (
     <motion.a
       href={href}
+      onClick={onClick}
       className={`flex items-center space-x-1 hover:text-amber-400 transition-colors ${isActive ? 'text-amber-400' : 'text-gray-300'}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

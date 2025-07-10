@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent overscroll bounce and white glare */
+html, body {
+  overscroll-behavior: none;
+  overflow-x: hidden;
+}
+
+/* Custom smooth scroll for anchor links */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Prevent white background showing during scroll */
+body {
+  background-color: #000000;
+  min-height: 100vh;
+}
+
 @keyframes blob {
   0% {
     transform: translate(0px, 0px) scale(1);

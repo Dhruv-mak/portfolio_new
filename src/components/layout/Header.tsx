@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, animate } from 'framer-motion';
 import { User, Briefcase, Code, MessageSquare, Menu, X, Download } from 'lucide-react';
 import { NavLink } from '@/components/ui/nav-link';
 
@@ -14,6 +14,37 @@ export default function Header({ activeSection }: { activeSection: string }) {
     { id: 'skills', label: 'Skills', icon: <MessageSquare size={16} /> },
     { id: 'contact', label: 'Contact', icon: <MessageSquare size={16} /> }
   ];
+
+  // Smooth scroll handler using Framer Motion
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const headerOffset = 80; // Account for fixed header height
+      const elementPosition = targetElement.offsetTop;
+      const offsetPosition = Math.max(0, elementPosition - headerOffset);
+      
+      // Get document height to prevent over-scrolling
+      const documentHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+      const maxScroll = documentHeight - windowHeight;
+      
+      // Ensure we don't scroll past the document
+      const finalPosition = Math.min(offsetPosition, maxScroll);
+
+      // Use Framer Motion's animate for smoother control
+      animate(window.scrollY, finalPosition, {
+        duration: 0.8,
+        ease: "easeInOut",
+        onUpdate: (value) => window.scrollTo(0, value),
+        onComplete: () => {
+          // Ensure exact position after animation
+          window.scrollTo(0, finalPosition);
+        }
+      });
+    }
+    setMobileMenuOpen(false); // Close mobile menu if open
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/50 border-b border-gray-800">
@@ -40,6 +71,7 @@ export default function Header({ activeSection }: { activeSection: string }) {
                 isActive={activeSection === item.id}
                 icon={item.icon}
                 label={item.label}
+                onClick={(e) => handleSmoothScroll(e, item.id)}
               />
             ))}
           </nav>
@@ -83,7 +115,7 @@ export default function Header({ activeSection }: { activeSection: string }) {
                   key={item.id}
                   href={`#${item.id}`}
                   className={`flex items-center space-x-2 py-2 px-4 hover:bg-gray-800 rounded-md transition-colors ${activeSection === item.id ? 'text-amber-400 bg-gray-800/50' : 'text-gray-300'}`}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => handleSmoothScroll(e, item.id)}
                   whileHover={{ x: 5 }}
                   whileTap={{ scale: 0.95 }}
                 >
