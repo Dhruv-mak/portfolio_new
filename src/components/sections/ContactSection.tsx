@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Twitter, Send, Loader2 } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, Loader2 } from 'lucide-react';
 import { fadeInUp } from '@/lib/animations';
 import { useForm } from '@formspree/react';
 
