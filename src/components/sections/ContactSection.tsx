@@ -158,7 +158,7 @@ export default function ContactSection() {
                   {[
                     { icon: <Github size={20} />, url: "https://github.com/Dhruv-mak", name: "GitHub" },
                     { icon: <Linkedin size={20} />, url: "https://linkedin.com/in/makwana-dhruv", name: "LinkedIn" },
-                    { icon: <Twitter size={20} />, url: "https://twitter.com/yourusername", name: "Twitter" } // Placeholder for Twitter
+                    // { icon: <Twitter size={20} />, url: "https://twitter.com/yourusername", name: "Twitter" } // Placeholder for Twitter
                   ].map((social, index) => (
                     <motion.a
                       key={index}
