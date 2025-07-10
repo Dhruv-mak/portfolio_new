@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { User, Briefcase, Code, MessageSquare, Menu, X } from 'lucide-react';
+import { User, Briefcase, Code, MessageSquare, Menu, X, Download } from 'lucide-react';
 import { NavLink } from '@/components/ui/nav-link';
 
 export default function Header({ activeSection }: { activeSection: string }) {
@@ -31,17 +31,32 @@ export default function Header({ activeSection }: { activeSection: string }) {
         </motion.div>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          {navItems.map(item => (
-            <NavLink 
-              key={item.id}
-              href={`#${item.id}`}
-              isActive={activeSection === item.id}
-              icon={item.icon}
-              label={item.label}
-            />
-          ))}
-        </nav>
+        <div className="hidden md:flex items-center space-x-8">
+          <nav className="flex space-x-8">
+            {navItems.map(item => (
+              <NavLink 
+                key={item.id}
+                href={`#${item.id}`}
+                isActive={activeSection === item.id}
+                icon={item.icon}
+                label={item.label}
+              />
+            ))}
+          </nav>
+          
+          {/* Resume Link */}
+          <motion.a
+            href="https://drive.google.com/file/d/1PS50d-vBBglU4RDM8HnDRRjX-E1LTThj/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-white rounded-lg font-medium transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Download size={16} />
+            <span>Resume</span>
+          </motion.a>
+        </div>
         
         {/* Mobile Menu Button */}
         <motion.button
@@ -76,6 +91,20 @@ export default function Header({ activeSection }: { activeSection: string }) {
                   <span>{item.label}</span>
                 </motion.a>
               ))}
+              
+              {/* Mobile Resume Link */}
+              <motion.a
+                href="https://drive.google.com/file/d/1PS50d-vBBglU4RDM8HnDRRjX-E1LTThj/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 py-2 px-4 bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-white rounded-md font-medium transition-all duration-300"
+                onClick={() => setMobileMenuOpen(false)}
+                whileHover={{ x: 5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Download size={16} />
+                <span>Resume</span>
+              </motion.a>
             </div>
           </motion.div>
         )}
